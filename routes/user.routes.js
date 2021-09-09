@@ -1,6 +1,9 @@
 const router = require("express").Router();
 const authCtrl = require("../controllers/auth");
 const userCtrl = require("../controllers/user");
+const uploadCtlr = require("../controllers/upload");
+const multer = require("multer");
+const upload = multer();
 
 //inscription
 router.post("/signup", authCtrl.signUp);
@@ -21,5 +24,8 @@ router.put("/:id", userCtrl.updateUser);
 
 //supprimer un utilisateur
 router.delete("/:id", userCtrl.deleteUser);
+
+// upload
+router.post("/upload", upload.single("file"), uploadCtlr.uploadProfil);
 
 module.exports = router;
