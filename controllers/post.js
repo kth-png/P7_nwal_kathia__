@@ -6,6 +6,8 @@ const { promisify } = require("util");
 const pipeline = promisify(require("stream").pipeline);
 const { uploadErrors } = require("../utils/errors");
 
+//                   Controleurs posts                //
+//------------------Affichage des posts
 exports.readPost = (req, res) => {
   postModel
     .find((err, docs) => {
@@ -15,6 +17,7 @@ exports.readPost = (req, res) => {
     .sort({ createdAt: -1 });
 };
 
+//------------------Création d'un post
 exports.createPost = async (req, res) => {
   let fileName;
 
@@ -60,6 +63,7 @@ exports.createPost = async (req, res) => {
   }
 };
 
+//----------------------Modification d'un post
 exports.updatePost = (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send("ID unknown:" + req.params.id);
@@ -79,6 +83,7 @@ exports.updatePost = (req, res) => {
   );
 };
 
+//-----------------------Supression d'un post
 exports.deletePost = (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send("ID unknown:" + req.params.id);
@@ -89,11 +94,11 @@ exports.deletePost = (req, res) => {
   });
 };
 
-// Liker un message
+//--------------------------Like d'un post
 module.exports.likePost = async (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send("ID unknown:" + req.params.id);
-  //! await retiré pour que ça fonctionne
+
   try {
     postModel.findByIdAndUpdate(
       req.params.id,
@@ -122,7 +127,7 @@ module.exports.likePost = async (req, res) => {
   }
 };
 
-// unliker un message
+//--------------------------Unlike d'un post
 exports.unlikePost = async (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send("ID unknown:" + req.params.id);
@@ -154,7 +159,7 @@ exports.unlikePost = async (req, res) => {
   }
 };
 
-// Controlleurs de commentaires
+// Controleurs de commentaires
 //--------------   Ajouter un commentaire à un post
 exports.commentPost = (req, res) => {
   if (!ObjectID.isValid(req.params.id))

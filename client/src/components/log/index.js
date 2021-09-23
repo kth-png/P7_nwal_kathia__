@@ -3,9 +3,7 @@ import SignUpForm from "./signUpForm";
 import SignInForm from "./signInForm";
 
 const Log = (props) => {
-  // eslint-disable-next-line no-unused-vars
   const [signUpModal, setSignUpModal] = useState(props.signup);
-  // eslint-disable-next-line no-unused-vars
   const [signInModal, setSignInModal] = useState(props.signin);
 
   const handleModals = (e) => {

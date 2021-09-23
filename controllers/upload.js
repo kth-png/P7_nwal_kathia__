@@ -4,6 +4,7 @@ const { promisify } = require("util");
 const pipeline = promisify(require("stream").pipeline);
 const { uploadErrors } = require("../utils/errors");
 
+//Contrôle upload image
 exports.uploadProfil = async (req, res) => {
   try {
     if (
