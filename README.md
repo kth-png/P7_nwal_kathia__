@@ -15,7 +15,7 @@
 ## Back-end configuration:
 
 > Put your cluster info inside /config/db.js
-> Create .env file inside /config/ within the folliowong data
+> Create /_.env_/ file inside /config/ within the following data:
 
 - PORT=5000 your localhost port
 - CLIENT_URL=http://localhost:3000 your client url
@@ -24,6 +24,6 @@
 
 ## Front-end configuration:
 
-> Create a .env file within the server URL:
+> Create a /_.env_/ file within the server URL:
 
-- REACT_APP_API_URL=http://localhost:5000/your server url
+- REACT_APP_API_URL=http://localhost:5000/ your server url
