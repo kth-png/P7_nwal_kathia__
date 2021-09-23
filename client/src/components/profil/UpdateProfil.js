@@ -4,6 +4,7 @@ import { updateBio } from "../../actions/user.actions";
 import LeftNav from "../LeftNav";
 import { dateParser } from "../Utils";
 import UploadImg from "./UploadImg";
+import DeleteProfil from "./DeleteProfil";
 
 const UpdateProfil = () => {
   const [bio, setBio] = useState("");
@@ -56,6 +57,7 @@ const UpdateProfil = () => {
           <h4>Inscrit depuis le : {dateParser(userData.createdAt)}</h4>
         </div>
       </div>
+      <div className="delete-container">{userData._id && <DeleteProfil />}</div>
     </div>
   );
 };
