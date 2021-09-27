@@ -18,11 +18,12 @@ const App = () => {
       })
         .then((res) => {
           setUid(res.data);
+          console.log(uid);
         })
         .catch((err) => console.log("No token"));
     };
-    fetchToken();
 
+    fetchToken();
     if (uid) dispatch(getUser(uid));
   }, [uid, dispatch]);
 

@@ -14,6 +14,7 @@ const Card = ({ post }) => {
   const usersData = useSelector((state) => state.usersReducer);
   const userData = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
+  const adminId = "614c3ff73ad1285c0c446638";
 
   const updateItem = () => {
     if (textUpdate) {
@@ -94,6 +95,12 @@ const Card = ({ post }) => {
                 <div onClick={() => setIsUpdated(!isUpdated)}>
                   <img src="./img/icons/edit.svg" alt="edit" />
                 </div>
+                <DeleteCard id={post._id} />
+              </div>
+            )}
+            {/*ADMIN SUPPRESSION POST */}
+            {userData._id === adminId && (
+              <div className="button-container">
                 <DeleteCard id={post._id} />
               </div>
             )}

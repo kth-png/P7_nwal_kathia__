@@ -8,6 +8,7 @@ import Trends from "../components/Trends";
 
 const Home = () => {
   const uid = useContext(UidContext);
+  //const admin = useContext(AdminContext);
 
   return (
     <div className="home">

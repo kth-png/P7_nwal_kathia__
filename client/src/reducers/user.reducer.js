@@ -1,9 +1,4 @@
-import {
-  DELETE_USER,
-  GET_USER,
-  UPDATE_BIO,
-  UPLOAD_PICTURE,
-} from "../actions/user.actions";
+import { GET_USER, UPDATE_BIO, UPLOAD_PICTURE } from "../actions/user.actions";
 
 const initialState = {};
 
@@ -21,8 +16,7 @@ export default function userReducer(state = initialState, action) {
         ...state,
         bio: action.payload,
       };
-    case DELETE_USER:
-      return state.filter((user) => user._id !== action.payload.userId);
+
     default:
       return state;
   }
